@@ -1,0 +1,6 @@
+- **Collaborated with a team of 7 developers** to build and launch a cross-platform mobile app using TypeScript and React Native, reaching over 100+ beta users in the first month of testing.
+- **Developed and optimized key app features**, improving overall performance by 15% through code refactoring, efficient state management, and enhanced responsiveness.
+- **Designed and implemented serverless backend functions** using AWS Lambda, ensuring scalable and efficient processing of user requests and app data.
+- **Managed secure data storage and retrieval** via AWS S3, optimizing the system for fast access and reliability across various app features.
+- **Led frontend development with React**, collaborating closely with designers to create a seamless, user-friendly interface and ensuring high performance on multiple platforms.
+- **Contributed to Agile workflows**, actively participating in sprint planning, performing code reviews, and ensuring high-quality code maintenance using Git for version control and collaboration.
