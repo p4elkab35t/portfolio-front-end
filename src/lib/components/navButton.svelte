@@ -1,9 +1,11 @@
 <script>
 	import { page } from "$app/stores";
     import { currentPage } from "$lib/stores/pages";
+    import { changedFromNavigation } from "$lib/stores/pages";
 
     const onClickHandler = () => {
         $currentPage = pageData.id;
+        changedFromNavigation.set(true);
     }
 
     

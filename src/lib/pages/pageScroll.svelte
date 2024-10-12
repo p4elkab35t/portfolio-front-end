@@ -4,6 +4,7 @@
       import { onMount } from 'svelte';
       import { currentPage } from '$lib/stores/pages';
       import { pageScrollPosition } from '$lib/stores/pages';
+      import { changedFromNavigation } from '$lib/stores/pages';
       
       export let pages: number;
       export let transitionDuration: number = 500; // milliseconds
@@ -15,6 +16,13 @@
       // currentPage.subscribe((value) => {
       //   scrollToPage(value);
       // });
+    
+      changedFromNavigation.subscribe((value) => {
+        if (value) {
+          scrollToPage($currentPage);
+          changedFromNavigation.set(false);
+        }
+      });
 
       function hasScrollableChild(element: HTMLElement): boolean {
         const childNodes = Array.from(element.querySelectorAll('*')); // Get all descendants of the element

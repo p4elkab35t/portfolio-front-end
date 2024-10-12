@@ -32,6 +32,8 @@ export const pages = writable({
 
 export const currentPage = writable(0);
 
+export const changedFromNavigation = writable(false);
+
 export const pageScrollPosition = writable(
   new Array(5).fill({
     top: false,
