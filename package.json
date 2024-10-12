@@ -44,5 +44,8 @@
   "type": "module",
   "dependencies": {
     "marked": "^14.1.2"
+  },
+  "engines": {
+    "node": ">=18.17.0"
   }
 }
