@@ -20,10 +20,9 @@
         if (typeof window === 'undefined') return;
         if (typeof id === 'undefined') return;
 
-        let isAtTopOfElement = scrollableElement.getBoundingClientRect().top <= 0;
-        let isAtBottomOfElement = scrollableElement.getBoundingClientRect().bottom <= window.innerHeight;
+        let isAtTopOfElement = element.scrollTop <= 10;
+        let isAtBottomOfElement = element.scrollTop + element.clientHeight >= element.scrollHeight-10;
 
-        console.log(scrollableElement.getBoundingClientRect().top, scrollableElement.getBoundingClientRect().bottom);
 
         $pageScrollPosition[id] = {
             top: isAtTopOfElement,
@@ -31,6 +30,8 @@
         }
 
         console.log(`on page ${id} scrolled is ${$pageScrollPosition[id].top} and ${$pageScrollPosition[id].bottom}`);
+        console.log(element.scrollTop, element.scrollHeight, element.clientHeight);
+        console.log(scrollableElement.getBoundingClientRect().top, scrollableElement.getBoundingClientRect().bottom);
     }
 
     let startY: number | null = null; // To store the initial touch position
@@ -47,7 +48,7 @@ const handleTouchMove = (event: TouchEvent) => {
 
     // Scroll the element by the calculated amount
     element.scroll({
-        top: element.scrollTop + deltaY,
+        top: element.scrollTop + deltaY*10,
         left: 0,
         behavior: 'smooth'
     });
@@ -84,7 +85,7 @@ const handleTouchEnd = () => {
                 scrollUpate(new Event('scroll'));
             }
             else{
-                console.log('PageBlock is not in view', id);
+                // console.log('PageBlock is not in view', id);
                 slightlyScrolledTop = false;
                 slightlyScrolledBottom = false;
             }
@@ -94,7 +95,7 @@ const handleTouchEnd = () => {
             if(entries[0].isIntersecting){
                 isVisible = true;
                 observer.disconnect();
-                console.log('PageBlock is in view');
+                // console.log('PageBlock is in view');
             }
             else{
 
@@ -109,18 +110,19 @@ const handleTouchEnd = () => {
     }
 
     const scrollUpate = (event: Event)=>{
+        getScrollPosition();
         let top = scrollableElement.getBoundingClientRect().top;
         let bottom = scrollableElement.getBoundingClientRect().bottom;
-        if(top < 0){
+        if(top < 10){
             slightlyScrolledTop = true;
-            console.log(top, 0);
+            // console.log(top, 0);
         }
         else{
             slightlyScrolledTop = false;
         }
-        if(bottom < window.innerHeight){
+        if(bottom < window.innerHeight + 10){
             slightlyScrolledBottom = true;
-            console.log(element.scrollTop, window.innerHeight);
+            // console.log(element.scrollTop, window.innerHeight);
         }
         else{
             slightlyScrolledBottom = false;
@@ -139,8 +141,8 @@ const handleTouchEnd = () => {
 </style>
 
 
-<section id="pageblock" class="w-full h-[100dvh] mx-auto pl-3 pr-10 py-2 md:px-10 md:py-10 transition-all overflow-hidden relative {slightlyScrolledTop?"innerShadowCover":"after:h-0"}" on:touchstart={handleTouchStart} on:touchmove={handleTouchMove} on:touchend={handleTouchEnd} on:wheel={handleScroll} on:scroll={scrollUpate} bind:this={element} use:inView>
-    <div class="w-full h-full flex flex-col fadeInTransition transition-all pt-14 {isVisible?"opacity-100":"opacity-0"}" bind:this={scrollableElement}>
+<section id="pageblock" class="w-full h-[100svh] mx-auto pl-3 pr-10 py-2 md:px-10 md:py-10 transition-all overflow-hidden relative {slightlyScrolledTop?"innerShadowCover after:fixed after:top-0 after:left-0 after:w-full after:h-[150px] after:z-[1000] block":"after:hidden"}" on:scroll={scrollUpate} on:touchstart={handleTouchStart} on:touchmove={handleTouchMove} on:touchend={handleTouchEnd} on:wheel={handleScroll} bind:this={element} use:inView>
+    <div class="w-full h-full flex flex-col fadeInTransition transition-all pt-14 {isVisible?"opacity-100":"opacity-0"}"  on:scroll={scrollUpate} bind:this={scrollableElement}>
         {#if title}
         <h2 class="absolute text-4xl font-bold top-2 md:top-10 after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-15 after:h-[3px] after:bg-black">
             {title}

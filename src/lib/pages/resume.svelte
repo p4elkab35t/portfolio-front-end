@@ -14,7 +14,6 @@
             if(entries[0].isIntersecting){
                 isVisible = true;
                 observer.disconnect();
-                console.log('PageBlock is in view');
             }
         }, options)
 

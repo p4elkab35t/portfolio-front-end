@@ -2,10 +2,6 @@
 	import { page } from "$app/stores";
     import { currentPage } from "$lib/stores/pages";
 
-    currentPage.subscribe((state) => {
-        // console.log(state);
-    });
-
     const onClickHandler = () => {
         $currentPage = pageData.id;
     }
@@ -15,7 +11,6 @@
     export let darkMode = false;
     export let pageData = {id: 1, title: "Skills", content: "/profile"};
 
-    // $: console.log($currentPage==pageData.id);
 
 </script>
 

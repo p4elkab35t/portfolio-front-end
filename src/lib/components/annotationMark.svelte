@@ -133,6 +133,12 @@
     position: relative;
     display: inline-block;
 }
+
+@media screen and (max-width: 768px) {
+    .annotation_block {
+        max-width: 90%;
+    }
+}
 </style>
 
 <svelte:window bind:innerWidth={windowWidth} bind:innerHeight={windowHeight} />

@@ -3,6 +3,7 @@
     <script lang="ts">
       import { onMount } from 'svelte';
       import { currentPage } from '$lib/stores/pages';
+      import { pageScrollPosition } from '$lib/stores/pages';
       
       export let pages: number;
       export let transitionDuration: number = 500; // milliseconds
@@ -11,9 +12,9 @@
       let touchStartY = 0;
       let container: HTMLElement;
 
-      currentPage.subscribe((value) => {
-        scrollToPage(value);
-      });
+      // currentPage.subscribe((value) => {
+      //   scrollToPage(value);
+      // });
 
       function hasScrollableChild(element: HTMLElement): boolean {
         const childNodes = Array.from(element.querySelectorAll('*')); // Get all descendants of the element
@@ -23,7 +24,7 @@
             overflowY === 'auto' || overflowY === 'scroll' || overflowY === 'hidden';
 
           if (isScrollable && child.scrollTop > 0 && child.scrollTop + child.clientHeight < child.scrollHeight && child.getBoundingClientRect().top <= 0 && child.getBoundingClientRect().bottom >= window.innerHeight) {
-            console.log(child.scrollTop + child.clientHeight, child.scrollHeight, child.getBoundingClientRect().top);
+            // console.log(child.scrollTop + child.clientHeight, child.scrollHeight, child.getBoundingClientRect().top);
             return true; // Found a scrollable child element
           }
         }
@@ -35,7 +36,6 @@
         
         if (pageNumber >= 0 && pageNumber < pages) {
           scrolling = true;
-          currentPage.set(pageNumber);
 
           if (typeof window === 'undefined') return;
           
@@ -47,6 +47,7 @@
           setTimeout(() => {
             scrolling = false;
           }, transitionDuration);
+          currentPage.set(pageNumber);
         }
       }
       
@@ -54,12 +55,23 @@
         if (scrolling) return;
         if (!container) return;
         if(hasScrollableChild(container)) return;
-
-        $currentPage = Math.min(
+        let newPage = Math.min(
           Math.max(0, $currentPage + Math.sign(event.deltaY)),
           pages - 1
         );
-        scrollToPage($currentPage);
+
+        if (newPage - $currentPage > 0) {
+          if ($pageScrollPosition[$currentPage].bottom) {
+            newPage = $currentPage + 1;
+          }
+        } else {
+          if ($pageScrollPosition[$currentPage].top) {
+            newPage = $currentPage - 1;
+          }
+        }
+
+        scrollToPage(newPage); 
+
       }
       
       function handleKeydown(event: KeyboardEvent) {
@@ -89,14 +101,19 @@
         
         if (Math.abs(deltaY) > 50) { // threshold for swipe
           if (deltaY > 0) {
-            scrollToPage($currentPage - 1);
+            if ($pageScrollPosition[$currentPage].top) {
+              scrollToPage($currentPage - 1);
+            }
           } else {
-            scrollToPage($currentPage + 1);
+            if ($pageScrollPosition[$currentPage].bottom) {
+              scrollToPage($currentPage + 1);
+            }
           }
         }
       }
       
       onMount(() => {
+        scrollToPage($currentPage);
         document.addEventListener('keydown', handleKeydown);
         return () => {
           document.removeEventListener('keydown', handleKeydown);
@@ -106,8 +123,8 @@
     
     <svelte:window 
       on:wheel|preventDefault={handleWheel}
-      on:touchstart|preventDefault={handleTouchStart}
-      on:touchend|preventDefault={handleTouchEnd}
+      on:touchstart={handleTouchStart}
+      on:touchend={handleTouchEnd}
     />
     
     <div class="relative w-full" bind:this={container}>

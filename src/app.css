@@ -37,16 +37,9 @@
 }
 
 .innerShadowCover::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
     -webkit-box-shadow: inset 0px 98px 49px -39px rgba(255,255,255,1);
     -moz-box-shadow: inset 0px 98px 49px -39px rgba(0,0,0,1);
     box-shadow: inset 0px 98px 49px -39px rgba(255,255,255,1);
-    z-index: 1000;
 }
 
 @keyframes slideTextBg {

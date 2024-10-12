@@ -14,7 +14,7 @@ I am a Full-Stack Web Developer based in Canada, with a strong background in bui
       
       <div class="flex-1 md:pl-15">
         <h3 class="text-5xl font-bold text-zinc-600 mb-4 text-center md:text-left pt-5 pb-10">{name}</h3>
-        <p class="text-black md:pr-20 font-semibold text-base sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg">{description}</p>
+        <p class="text-black md:pr-20 font-semibold text-sm sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg">{description}</p>
       </div>
     </div>
     </div>

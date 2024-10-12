@@ -13,6 +13,12 @@
     });
   </script>
 
+<svelte:head>
+        <title>Project {project.title} Pavel Fedorov - p4elkab35t</title>
+        <meta name="description" content="Project { project.title } of a web developer, Pavel Fedorov" />
+        <meta name="keywords" content="web developer, project page" />
+    </svelte:head>
+
   <a class="absolute bg-zinc-300 p-2 rounded-full top-10 left-10 hover:bg-zinc-200 transition-colors" href="/">
     <svg
       xmlns="http://www.w3.org/2000/svg"
