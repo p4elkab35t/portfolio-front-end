@@ -30,5 +30,12 @@ export interface Project {
       imageUrl: 'projects/pr_bots.png',
       technologies: ['Cloudflare', 'Telegram', 'JavaScript'],
       link: 'tg-bots', // Update links to be unique routes
+    },
+    {
+      title: 'Phone Beautifier',
+      description: 'Phone beautifier, JavaScript, React.',
+      imageUrl: 'projects/pr_phone.png',
+      technologies: ['React', 'JavaScript', 'cloudflare'],
+      link: 'https://phone-word.p4elkab35t.tech', // Update links to be unique routes
     }
   ];

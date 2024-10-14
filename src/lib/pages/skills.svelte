@@ -89,7 +89,6 @@ export let skillsRight: Skill[] = [
             document.querySelectorAll('.progress-bar').forEach((bar) => {
               const targetLevel = bar.getAttribute('data-level');
               (bar as HTMLElement).style.width = `${targetLevel}%`;
-              console.log('Animating skill bar');
             });
             hasAnimated = true; // Prevent animation from restarting when re-scrolled
           }

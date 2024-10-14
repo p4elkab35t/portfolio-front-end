@@ -11,7 +11,6 @@
     ];
 
     styleStore.subscribe((state) => {
-        console.log(state);
     });
 </script>
 

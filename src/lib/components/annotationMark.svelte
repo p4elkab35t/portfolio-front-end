@@ -67,9 +67,7 @@
     };
   
     const calculateAnnotationPosition = () => {
-    //   console.log(`text: x-${textX}px, y-${textY}px, width-${textWidth}px, height-${textHeight}px`);
-    //   console.log(`annotation: width-${annotationWidth}px, height-${annotationHeight}px`);
-    //   console.log(`window: width-${windowWidth}px, height-${windowHeight}px`);
+
       annotationX = textX + annotationWidth > windowWidth
         ? windowWidth - annotationWidth - 20
         : textX-40;
