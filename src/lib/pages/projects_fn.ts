@@ -36,6 +36,7 @@ export interface Project {
       description: 'Phone beautifier, JavaScript, React.',
       imageUrl: 'projects/pr_phone.png',
       technologies: ['React', 'JavaScript', 'cloudflare'],
-      link: 'https://phone-word.p4elkab35t.tech', // Update links to be unique routes
+      link: 'phone-beautifier', // Update links to be unique routes
+      links: 'https://phone-word.p4elkab35t.tech', // Update links to be unique routes
     }
   ];
