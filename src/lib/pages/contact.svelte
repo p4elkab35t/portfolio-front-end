@@ -10,7 +10,8 @@
     export let contactLinks: ContactLink[] = [
       { label: 'GitHub', href: 'https://github.com/P4elkaB35t', icon: 'github' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/p4elkab35t/', icon: 'linkedin' },
-      { label: 'Telegram', href: 'https://t.me/P4elkaB35t', icon: 'telegram' }
+      { label: 'Telegram', href: 'https://t.me/P4elkaB35t', icon: 'telegram' },
+      { label: 'Codewars', href: 'https://www.codewars.com/users/P4elkaB35t', icon: 'codewars'}
     ];
   </script>
   
