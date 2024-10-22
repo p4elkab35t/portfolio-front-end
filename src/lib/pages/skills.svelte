@@ -14,31 +14,31 @@
   {
     name: 'AWS',
     icon: 'aws',
-    level: 80,
+    level: 70,
     description: 'Designed and implemented serverless backend functions using AWS Lambda, and optimized secure data storage with AWS S3 for scalable performance.'
   },
   {
     name: 'JavaScript',
     icon: 'javascript',
-    level: 85,
+    level: 90,
     description: 'Strong background in JavaScript for building interactive web apps, reinforced by experience in refactoring code to boost performance by 15%.'
   },
   {
     name: 'Git',
     icon: 'git',
-    level: 90,
+    level: 80,
     description: 'Utilized Git for version control, ensuring smooth collaboration with teams on various projects, with emphasis on code quality and maintenance.'
   },
   {
     name: 'HTML5',
     icon: 'html5',
-    level: 95,
+    level: 90,
     description: 'Developed responsive, semantic web pages using HTML5, focusing on user-friendly interfaces and cross-platform compatibility.'
   },
   {
     name: 'CSS3',
     icon: 'css3',
-    level: 85,
+    level: 90,
     description: 'Skilled in modern CSS3 techniques for creating visually appealing and responsive designs, with experience in styling both web and mobile apps.'
   }
 ];
@@ -48,13 +48,13 @@ export let skillsRight: Skill[] = [
   {
     name: 'TypeScript',
     icon: 'typescript',
-    level: 85,
+    level: 80,
     description: 'Led development of a cross-platform mobile app using TypeScript, enhancing performance and code maintainability through efficient state management.'
   },
   {
     name: 'React',
     icon: 'react',
-    level: 90,
+    level: 65,
     description: 'Spearheaded frontend development with React, building high-performance user interfaces and collaborating closely with design teams for seamless UX.'
   },
   {
@@ -66,13 +66,13 @@ export let skillsRight: Skill[] = [
   {
     name: 'SQL',
     icon: 'sql',
-    level: 85,
+    level: 80,
     description: 'Extensive experience in relational database design and management, with hands-on work using MySQL and Microsoft SQL Server for data analysis.'
   },
   {
     name: 'Svelte',
     icon: 'svelte',
-    level: 70,
+    level: 85,
     description: 'Developed reactive and highly optimized web applications using Svelte, focusing on lightweight frameworks for enhanced performance.'
   }
 ];
