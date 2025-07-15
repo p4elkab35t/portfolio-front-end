@@ -44,9 +44,7 @@ npm run dev
 ## Credits
 🧑‍💻 Author
 Crafted by Pavel Fedorov
-📫 pavel.fedorov.dev@gmail.com
-🔗 LinkedIn
+📫 [pavel.fedorov.dev@gmail.com](mailto:pavel.fedorov.dev@gmail.com)  
+🔗 [LinkedIn](https://www.linkedin.com/in/pavelfedorovdev/)  
 
-📄 License
-MIT – Feel free to use or build upon this.
 ---
