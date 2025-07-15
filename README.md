@@ -1,9 +1,9 @@
 # 🌐 Portfolio Front-End
 
 [![Live Demo](https://img.shields.io/badge/Live%20Site-Open-green?logo=google-chrome)](https://portfolio-front-end-7px.pages.dev/)
-[![Built with Svelte](https://img.shields.io/badge/Built%20with-Svelte-orange?logo=svelte)]
-[![Styled with Tailwind](https://img.shields.io/badge/Styled%20with-TailwindCSS-blue?logo=tailwindcss)]
-[![Hosted on Cloudflare Pages](https://img.shields.io/badge/Deployed%20to-Cloudflare%20Pages-orange?logo=cloudflare)]
+![Built with Svelte](https://img.shields.io/badge/Built%20with-Svelte-orange?logo=svelte)
+![Styled with Tailwind](https://img.shields.io/badge/Styled%20with-TailwindCSS-blue?logo=tailwindcss)
+![Hosted on Cloudflare Pages](https://img.shields.io/badge/Deployed%20to-Cloudflare%20Pages-orange?logo=cloudflare)
 
 A sleek, responsive **portfolio one-pager** built with **Svelte** and **TailwindCSS**.  
 This site uses **horizontal sliding** for navigation instead of traditional scrolling, giving it a dynamic, section-by-section feel.
